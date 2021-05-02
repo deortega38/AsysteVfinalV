@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="PersonaEditDlg" widgetVar="PersonaEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditPersonaTitle}">
+            <h:form id="PersonaEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{personaController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditPersonaLabel_nombres}" for="nombres" />
+                        <p:inputText id="nombres" value="#{personaController.selected.nombres}" title="#{bundle.EditPersonaTitle_nombres}" required="true" requiredMessage="#{bundle.EditPersonaRequiredMessage_nombres}"/>
+                        <p:outputLabel value="#{bundle.EditPersonaLabel_apellidos}" for="apellidos" />
+                        <p:inputText id="apellidos" value="#{personaController.selected.apellidos}" title="#{bundle.EditPersonaTitle_apellidos}" required="true" requiredMessage="#{bundle.EditPersonaRequiredMessage_apellidos}"/>
+                        <p:outputLabel value="#{bundle.EditPersonaLabel_documento}" for="documento" />
+                        <p:inputText id="documento" value="#{personaController.selected.documento}" title="#{bundle.EditPersonaTitle_documento}" required="true" requiredMessage="#{bundle.EditPersonaRequiredMessage_documento}"/>
+                        <p:outputLabel value="#{bundle.EditPersonaLabel_correo}" for="correo" />
+                        <p:inputText id="correo" value="#{personaController.selected.correo}" title="#{bundle.EditPersonaTitle_correo}" required="true" requiredMessage="#{bundle.EditPersonaRequiredMessage_correo}"/>
+                        <p:outputLabel value="#{bundle.EditPersonaLabel_telefono}" for="telefono" />
+                        <p:inputText id="telefono" value="#{personaController.selected.telefono}" title="#{bundle.EditPersonaTitle_telefono}" required="true" requiredMessage="#{bundle.EditPersonaRequiredMessage_telefono}"/>
+                        <p:outputLabel value="#{bundle.EditPersonaLabel_eventosidEventos}" for="eventosidEventos" />
+                        <p:selectOneMenu id="eventosidEventos" value="#{personaController.selected.eventosidEventos}" required="true" requiredMessage="#{bundle.EditPersonaRequiredMessage_eventosidEventos}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{eventosController.itemsAvailableSelectOne}"
+                                           var="eventosidEventosItem"
+                                           itemValue="#{eventosidEventosItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditPersonaLabel_generoidGenero}" for="generoidGenero" />
+                        <p:selectOneMenu id="generoidGenero" value="#{personaController.selected.generoidGenero}" required="true" requiredMessage="#{bundle.EditPersonaRequiredMessage_generoidGenero}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{generoController.itemsAvailableSelectOne}"
+                                           var="generoidGeneroItem"
+                                           itemValue="#{generoidGeneroItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditPersonaLabel_tipodedocumentoidTipodedocumento}" for="tipodedocumentoidTipodedocumento" />
+                        <p:selectOneMenu id="tipodedocumentoidTipodedocumento" value="#{personaController.selected.tipodedocumentoidTipodedocumento}" required="true" requiredMessage="#{bundle.EditPersonaRequiredMessage_tipodedocumentoidTipodedocumento}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{tipodedocumentoController.itemsAvailableSelectOne}"
+                                           var="tipodedocumentoidTipodedocumentoItem"
+                                           itemValue="#{tipodedocumentoidTipodedocumentoItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditPersonaLabel_tipodepersonaidTipodepersona}" for="tipodepersonaidTipodepersona" />
+                        <p:selectOneMenu id="tipodepersonaidTipodepersona" value="#{personaController.selected.tipodepersonaidTipodepersona}" required="true" requiredMessage="#{bundle.EditPersonaRequiredMessage_tipodepersonaidTipodepersona}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{tipodepersonaController.itemsAvailableSelectOne}"
+                                           var="tipodepersonaidTipodepersonaItem"
+                                           itemValue="#{tipodepersonaidTipodepersonaItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{personaController.update}" value="#{bundle.Save}" update="display,:PersonaListForm:datalist,:growl" oncomplete="handleSubmit(args, 'PersonaEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="PersonaEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

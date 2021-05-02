@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="PersonaViewDlg" widgetVar="PersonaViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewPersonaTitle}">
+            <h:form id="PersonaViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{personaController.selected != null}">
+                        <h:outputText value="#{bundle.ViewPersonaLabel_nombres}"/>
+                        <h:outputText value="#{personaController.selected.nombres}" title="#{bundle.ViewPersonaTitle_nombres}"/>
+                        <h:outputText value="#{bundle.ViewPersonaLabel_apellidos}"/>
+                        <h:outputText value="#{personaController.selected.apellidos}" title="#{bundle.ViewPersonaTitle_apellidos}"/>
+                        <h:outputText value="#{bundle.ViewPersonaLabel_documento}"/>
+                        <h:outputText value="#{personaController.selected.documento}" title="#{bundle.ViewPersonaTitle_documento}"/>
+                        <h:outputText value="#{bundle.ViewPersonaLabel_correo}"/>
+                        <h:outputText value="#{personaController.selected.correo}" title="#{bundle.ViewPersonaTitle_correo}"/>
+                        <h:outputText value="#{bundle.ViewPersonaLabel_telefono}"/>
+                        <h:outputText value="#{personaController.selected.telefono}" title="#{bundle.ViewPersonaTitle_telefono}"/>
+                        <h:outputText value="#{bundle.ViewPersonaLabel_eventosidEventos}"/>
+                        <h:outputText value="#{personaController.selected.eventosidEventos}" title="#{bundle.ViewPersonaTitle_eventosidEventos}"/>
+                        <h:outputText value="#{bundle.ViewPersonaLabel_generoidGenero}"/>
+                        <h:outputText value="#{personaController.selected.generoidGenero}" title="#{bundle.ViewPersonaTitle_generoidGenero}"/>
+                        <h:outputText value="#{bundle.ViewPersonaLabel_tipodedocumentoidTipodedocumento}"/>
+                        <h:outputText value="#{personaController.selected.tipodedocumentoidTipodedocumento}" title="#{bundle.ViewPersonaTitle_tipodedocumentoidTipodedocumento}"/>
+                        <h:outputText value="#{bundle.ViewPersonaLabel_tipodepersonaidTipodepersona}"/>
+                        <h:outputText value="#{personaController.selected.tipodepersonaidTipodepersona.nombre}" title="#{bundle.ViewPersonaTitle_tipodepersonaidTipodepersona}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="PersonaViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

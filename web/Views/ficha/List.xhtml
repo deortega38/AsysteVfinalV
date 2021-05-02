@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/templateAdmin.xhtml">
+
+
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListFichaTitle}"></h:outputText>
+        </ui:define>
+
+        <ui:define name="body">
+            <h:form id="FichaListForm">
+                <p:panel header="#{bundle.ListFichaTitle}">
+                    <p:dataTable id="datalist" value="#{fichaController.items}" var="item"
+                                 selectionMode="single" selection="#{fichaController.selected}"
+                                 paginator="true"
+                                 rowKey="#{item.idFicha}"
+                                 rows="10"
+                                 rowsPerPageTemplate="10,20,30,40,50"
+                                 widgetVar="customersTable"
+                                 >
+
+                        <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
+                        <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
+                        <f:facet name="header">
+                            <div class="p-d-flex p-ai-center p-jc-between">
+                                <p:inputText id="globalFilter" onkeyup="PF('customersTable').filter()" style="width:10rem" placeholder="Buscar"/>
+                            </div>
+                        </f:facet>
+                        <p:column filterBy="#{item.idFicha}">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFichaTitle_idFicha}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idFicha}"/>
+                        </p:column>
+                        <p:column filterBy="#{item.numero}">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFichaTitle_numero}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.numero}"/>
+                        </p:column>
+                        <p:column filterBy="#{item.ambiente}">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFichaTitle_ambiente}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ambiente}"/>
+                        </p:column>
+                        <p:column filterBy="#{item.fechadeinicio}">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFichaTitle_fechadeinicio}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechadeinicio}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column filterBy="#{item.fechafin.day}">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFichaTitle_fechafin}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechafin}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column filterBy="#{item.horadeinicio}">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFichaTitle_horadeinicio}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.horadeinicio}"/>
+                        </p:column>
+                        <p:column filterBy="#{item.horafin}">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFichaTitle_horafin}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.horafin}"/>
+                        </p:column>
+                        <p:column filterBy="#{item.jornadaidJornada.nombre}">
+                            <f:facet name="header">
+                                <h:outputText value="Jornada"/>
+                            </f:facet>
+                            <h:outputText value="#{item.jornadaidJornada.nombre}"/>
+                        </p:column>
+                        <p:column filterBy="#{item.modalidadidModalidad.nombre}">
+                            <f:facet name="header">
+                                <h:outputText value="Modalidad"/>
+                            </f:facet>
+                            <h:outputText value="#{item.modalidadidModalidad.nombre}"/>
+                        </p:column>
+                        <p:column filterBy="#{item.programaidPrograma.nombre}">
+                            <f:facet name="header">
+                                <h:outputText value="Programa"/>
+                            </f:facet>
+                            <h:outputText value="#{item.programaidPrograma.nombre}"/>
+                        </p:column>
+                        <f:facet name="footer">
+                            <p:commandButton style="padding: 5px; background: rgb(89, 181, 72); border-radius: 15px; color: white;    background-image: -webkit-linear-gradient(top, rgb(89, 181, 72), rgb(89, 181, 72)); border: 0px;"  id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{fichaController.prepareCreate}" update=":FichaCreateForm" oncomplete="PF('FichaCreateDialog').show()"/>
+                            <p:commandButton style="padding: 5px; background: rgb(89, 181, 72); border-radius: 15px; color: white;    background-image: -webkit-linear-gradient(top, rgb(89, 181, 72), rgb(89, 181, 72)); border: 0px;"  id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":FichaViewForm" oncomplete="PF('FichaViewDialog').show()" disabled="#{empty fichaController.selected}"/>
+                            <p:commandButton style="padding: 5px; background: rgb(89, 181, 72); border-radius: 15px; color: white;    background-image: -webkit-linear-gradient(top, rgb(89, 181, 72), rgb(89, 181, 72)); border: 0px;"  id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":FichaEditForm" oncomplete="PF('FichaEditDialog').show()" disabled="#{empty fichaController.selected}"/>
+                            <p:commandButton style="padding: 5px; background: rgb(89, 181, 72); border-radius: 15px; color: white;    background-image: -webkit-linear-gradient(top, rgb(89, 181, 72), rgb(89, 181, 72)); border: 0px;"  id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{fichaController.destroy}" update=":growl,datalist" disabled="#{empty fichaController.selected}"/>
+                        </f:facet>
+                    </p:dataTable>
+                </p:panel>
+            </h:form>
+
+            <ui:include src="Create.xhtml"/>
+            <ui:include src="Edit.xhtml"/>
+            <ui:include src="View.xhtml"/>
+        </ui:define>
+    </ui:composition>
+
+</html>

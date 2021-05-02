@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="AsistenciaCreateDlg" widgetVar="AsistenciaCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateAsistenciaTitle}">
+            <h:form id="AsistenciaCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{asistenciaController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateAsistenciaLabel_fecha}" for="fecha"/>
+                        <p:calendar id="fecha" pattern="MM/dd/yyyy" value="#{asistenciaController.selected.fecha}" title="#{bundle.EditAsistenciaTitle_fecha}" required="true" requiredMessage="#{bundle.EditAsistenciaRequiredMessage_fecha}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateAsistenciaLabel_horadeingreso}" for="horadeingreso" />
+                        <p:inputText id="horadeingreso" value="#{asistenciaController.selected.horadeingreso}" title="#{bundle.CreateAsistenciaTitle_horadeingreso}" required="true" requiredMessage="#{bundle.CreateAsistenciaRequiredMessage_horadeingreso}"/>
+                        <p:outputLabel value="#{bundle.CreateAsistenciaLabel_horadesalida}" for="horadesalida" />
+                        <p:inputText id="horadesalida" value="#{asistenciaController.selected.horadesalida}" title="#{bundle.CreateAsistenciaTitle_horadesalida}" required="true" requiredMessage="#{bundle.CreateAsistenciaRequiredMessage_horadesalida}"/>
+                        <p:outputLabel value="#{bundle.CreateAsistenciaLabel_justificacion}" for="justificacion" />
+                        <p:inputText id="justificacion" value="#{asistenciaController.selected.justificacion}" title="#{bundle.CreateAsistenciaTitle_justificacion}" required="true" requiredMessage="#{bundle.CreateAsistenciaRequiredMessage_justificacion}"/>
+                        <p:outputLabel value="Estado" for="estadoidEstado" />
+                        <p:selectOneMenu id="estadoidEstado" value="#{asistenciaController.selected.estadoidEstado}" required="true" requiredMessage="#{bundle.EditAsistenciaRequiredMessage_estadoidEstado}">
+                            <f:selectItems value="#{estadoController.itemsAvailableSelectOne}"
+                                           var="estadoidEstadoItem"
+                                           itemValue="#{estadoidEstadoItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateAsistenciaLabel_eventosidEventos}" for="eventosidEventos" />
+                        <p:selectOneMenu filter="true" id="eventosidEventos" value="#{asistenciaController.selected.eventosidEventos}" required="true" requiredMessage="#{bundle.EditAsistenciaRequiredMessage_eventosidEventos}">
+                            <f:selectItems value="#{eventosController.itemsAvailableSelectOne}"
+                                           var="eventosidEventosItem"
+                                           itemValue="#{eventosidEventosItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateAsistenciaLabel_personaIdPersona}" for="personaIdPersona" />
+                        <p:selectOneMenu filter="true" id="personaIdPersona" value="#{asistenciaController.selected.personaIdPersona}" required="true" requiredMessage="#{bundle.EditAsistenciaRequiredMessage_personaIdPersona}">
+                            <f:selectItems value="#{personaController.itemsAvailableSelectOne}"
+                                           var="personaIdPersonaItem"
+                                           itemValue="#{personaIdPersonaItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{asistenciaController.create}" value="#{bundle.Save}" update="display,:AsistenciaListForm:datalist,:growl" oncomplete="handleSubmit(args,'AsistenciaCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="AsistenciaCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

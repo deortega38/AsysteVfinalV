@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+        <h:head>
+        <title>Facelet</title>
+        <h:outputStylesheet library="css" name="jsfcrud.css"/>
+        <h:outputScript library="js" name="jsfcrud.js"/>
+    </h:head>
+    <ui:composition template="/templateIns.xhtml">
+
+
+        <ui:define name="title">
+            <h:outputText value="Programas"></h:outputText>
+        </ui:define>
+
+        <ui:define name="body">
+            <h:form id="ProgramaListForm">
+                <p:panel header="Programas">
+                    <p:dataTable id="datalist" value="#{programaController.items}" var="item"
+                                 selectionMode="single" selection="#{programaController.selected}"
+                                 paginator="true"
+                                 rowKey="#{item.idPrograma}"
+                                 rows="10"
+                                 rowsPerPageTemplate="10,20,30,40,50"
+                                 widgetVar="customersTable"
+                                 rowStyleClass="listasstyle"
+                                 >
+
+                        <p:ajax event="rowSelect"   update="viewButton"/>
+                        <p:ajax event="rowUnselect" update="viewButton"/>
+                        <f:facet name="header">
+                            <div class="p-d-flex p-ai-center p-jc-between">
+                                <p:inputText id="globalFilter" onkeyup="PF('customersTable').filter()" style="width:10rem" placeholder="Buscar"/>
+                            </div>
+                        </f:facet>
+                        <p:column  filterBy="#{item.idPrograma}" filterable="false" visible="false">
+                            <f:facet name="header" >
+                                <h:outputText value="#{bundle.ListProgramaTitle_idPrograma}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idPrograma}"/>
+                        </p:column>
+                        <p:column filterBy="#{item.nombre}" filterable="false">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListProgramaTitle_nombre}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nombre}"/>
+                        </p:column>
+                        <p:column filterBy="#{item.descripcion}" filterable="false">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListProgramaTitle_descripcion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.descripcion}"/>
+                        </p:column>
+                        <p:column filterBy="#{item.niveldeformacionidNiveldeformacion.nombre}" filterable="false">
+                            <f:facet name="header">
+                                <h:outputText value="Nivel de formación"/>
+                            </f:facet>
+                            <h:outputText value="#{item.niveldeformacionidNiveldeformacion.nombre}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Opción"/>
+                            </f:facet>
+                            <p:commandLink value="Ingresar" action="#{programaController.renderFichas(item.idPrograma)}"/>
+                        </p:column>
+
+                        <f:facet name="footer">
+                            <p:commandButton style="padding: 5px; background: rgb(89, 181, 72); border-radius: 15px; color: white;    background-image: -webkit-linear-gradient(top, rgb(89, 181, 72), rgb(89, 181, 72)); border: 0px;" id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":ProgramaViewForm" oncomplete="PF('ProgramaViewDialog').show()" disabled="#{empty programaController.selected}"/>
+                        </f:facet>
+                    </p:dataTable>
+                </p:panel>
+            </h:form>
+
+
+
+            <ui:include src="/Views/programa/View.xhtml"/>
+        </ui:define>
+    </ui:composition>
+
+</html>

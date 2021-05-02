@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="FichaViewDlg" widgetVar="FichaViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewFichaTitle}">
+            <h:form id="FichaViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{fichaController.selected != null}">
+                        <h:outputText value="#{bundle.ViewFichaLabel_numero}"/>
+                        <h:outputText value="#{fichaController.selected.numero}" title="#{bundle.ViewFichaTitle_numero}"/>
+                        <h:outputText value="#{bundle.ViewFichaLabel_ambiente}"/>
+                        <h:outputText value="#{fichaController.selected.ambiente}" title="#{bundle.ViewFichaTitle_ambiente}"/>
+                        <h:outputText value="#{bundle.ViewFichaLabel_fechadeinicio}"/>
+                        <h:outputText value="#{fichaController.selected.fechadeinicio}" title="#{bundle.ViewFichaTitle_fechadeinicio}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewFichaLabel_fechafin}"/>
+                        <h:outputText value="#{fichaController.selected.fechafin}" title="#{bundle.ViewFichaTitle_fechafin}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewFichaLabel_horadeinicio}"/>
+                        <h:outputText value="#{fichaController.selected.horadeinicio}" title="#{bundle.ViewFichaTitle_horadeinicio}"/>
+                        <h:outputText value="#{bundle.ViewFichaLabel_horafin}"/>
+                        <h:outputText value="#{fichaController.selected.horafin}" title="#{bundle.ViewFichaTitle_horafin}"/>
+                        <h:outputText value="#{bundle.ViewFichaLabel_jornadaidJornada}"/>
+                        <h:outputText value="#{fichaController.selected.jornadaidJornada}" title="#{bundle.ViewFichaTitle_jornadaidJornada}"/>
+                        <h:outputText value="#{bundle.ViewFichaLabel_modalidadidModalidad}"/>
+                        <h:outputText value="#{fichaController.selected.modalidadidModalidad}" title="#{bundle.ViewFichaTitle_modalidadidModalidad}"/>
+                        <h:outputText value="#{bundle.ViewFichaLabel_programaidPrograma}"/>
+                        <h:outputText value="#{fichaController.selected.programaidPrograma.nombre}" title="#{bundle.ViewFichaTitle_programaidPrograma}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="FichaViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

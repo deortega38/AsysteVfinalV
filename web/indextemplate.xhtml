@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Asyste</title>
+        <link alt="Cinque terre" rel="shortcut icon" href="resources/assets/favicon.ico"/>
+        <h:outputStylesheet library="css" name="jsfcrud.css"/>
+        <h:outputScript library="js" name="jsfcrud.js"/>
+    </h:head>
+    <h:body>
+        <p:growl id="growl" life="3000" />
+        <p:layout fullPage="true">
+            <p:layoutUnit class="conbordestemplate" position="north" size="120">
+                <div class="header-logo" align="lefth"><img class="img_logo" alt="" src="resources/assets/logosena.png" height="50px" width="50px"></img></div>    
+                <div class="linea" style="background-color: rgb(252, 115, 35);"></div>
+                <div class="alingtext" style="float: left;"><h1 class="title-login" style="text-align: center;">Asyste<h3><br/><br/>Sistema de gestión <br/>de asistencia</h3></h1></div>
+            </p:layoutUnit>
+            <p:layoutUnit class="sinbordestemplate" position="west" size="60"></p:layoutUnit>
+            <p:layoutUnit class="sinbordestemplate" position="center" size="100">
+                <ui:insert name="login"/>
+            </p:layoutUnit>
+            <p:layoutUnit class="sinbordestemplate" position="east" size="60"></p:layoutUnit>
+            <p:layoutUnit class="conbordestemplate" position="south" size="100"><center style="padding-top: 30px;">Asyste sena 2021 © Todos los derechos reservados</center></p:layoutUnit>
+        </p:layout>
+    </h:body>
+</html>
+

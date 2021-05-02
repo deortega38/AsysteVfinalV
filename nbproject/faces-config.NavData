@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scene Scope="Project" version="2">
+    <Scope Scope="Faces Configuration Only"/>
+    <Scope Scope="Project">
+        <Node id="Views/persona/Create.xhtml" x="900" y="150" zoom="true"/>
+        <Node id="Views/asistencia/View.xhtml" x="150" y="900" zoom="true"/>
+        <Node id="Views/genero/View.xhtml" x="2900" y="150" zoom="true"/>
+        <Node id="Views/ficha/Edit.xhtml" x="1650" y="150" zoom="true"/>
+        <Node id="Views/estado/View.xhtml" x="1150" y="1200" zoom="true"/>
+        <Node id="Views/niveldeformacion/List.xhtml" x="-865" y="1127" zoom="true"/>
+        <Node id="Views/ficha/Create.xhtml" x="150" y="1200" zoom="true"/>
+        <Node id="Views/estado/List.xhtml" x="-445" y="1586" zoom="true"/>
+        <Node id="welcomePrimefaces.xhtml" x="1650" y="900" zoom="true"/>
+        <Node id="templateAdmin.xhtml" x="-459" y="1004" zoom="true"/>
+        <Node id="Views/eventos/Create.xhtml" x="1400" y="600" zoom="true"/>
+        <Node id="admin/aprendices.xhtml" x="146" y="1521" zoom="true"/>
+        <Node id="Views/niveldeformacion/View.xhtml" x="400" y="1200" zoom="true"/>
+        <Node id="Views/genero/Edit.xhtml" x="1150" y="150" zoom="true"/>
+        <Node id="Views/asistencia/List.xhtml" x="-358" y="1303" zoom="true"/>
+        <Node id="Views/eventos/Edit.xhtml" x="650" y="450" zoom="true"/>
+        <Node id="Views/ficha/View.xhtml" x="2400" y="450" zoom="true"/>
+        <Node id="Views/ficha/List.xhtml" x="-376" y="1498" zoom="true"/>
+        <Node id="Views/genero/Create.xhtml" x="650" y="1200" zoom="true"/>
+        <Node id="admin/eventos.xhtml" x="149" y="1468" zoom="true"/>
+        <Node id="instructor/programas.xhtml" x="400" y="1350" zoom="true"/>
+        <Node id="Views/genero/List.xhtml" x="-449" y="1460" zoom="true"/>
+        <Node id="Views/asistencia/Edit.xhtml" x="400" y="150" zoom="true"/>
+        <Node id="admin/programas.xhtml" x="140" y="1358" zoom="true"/>
+        <Node id="Views/programa/Create.xhtml" x="400" y="1050" zoom="true"/>
+        <Node id="Views/modalidad/Edit.xhtml" x="2150" y="300" zoom="true"/>
+        <Node id="Views/programa/Edit.xhtml" x="911" y="602" zoom="true"/>
+        <Node id="index.xhtml" x="150" y="154" zoom="true"/>
+        <Node id="Views/tipodedocumento/View.xhtml" x="900" y="1050" zoom="true"/>
+        <Node id="Views/eventos/List.xhtml" x="-434" y="1638" zoom="true"/>
+        <Node id="Views/tipodeusuario/List.xhtml" x="-418" y="1340" zoom="true"/>
+        <Node id="Views/asistencia/Create.xhtml" x="150" y="1050" zoom="true"/>
+        <Node id="Views/tipodedocumento/List.xhtml" x="-469" y="1127" zoom="true"/>
+        <Node id="Views/eventos/View.xhtml" x="150" y="300" zoom="true"/>
+        <Node id="Views/niveldeformacion/Edit.xhtml" x="1150" y="300" zoom="true"/>
+        <Node id="Views/estado/Edit.xhtml" x="650" y="600" zoom="true"/>
+        <Node id="Views/tipodeusuario/View.xhtml" x="900" y="1200" zoom="true"/>
+        <Node id="Views/estado/Create.xhtml" x="673" y="1352" zoom="true"/>
+        <Node id="Views/usuario/Edit.xhtml" x="1150" y="900" zoom="true"/>
+        <Node id="templateAp.xhtml" x="-38" y="1303" zoom="true"/>
+        <Node id="indextemplate.xhtml" x="1150" y="600" zoom="true"/>
+        <Node id="Views/jornada/View.xhtml" x="2150" y="450" zoom="true"/>
+        <Node id="Views/tipodedocumento/Create.xhtml" x="1158" y="1029" zoom="true"/>
+        <Node id="admin/asistencias.xhtml" x="139" y="1573" zoom="true"/>
+        <Node id="Views/tipodepersona/List.xhtml" x="-426" y="1199" zoom="true"/>
+        <Node id="Views/tipodeusuario/Create.xhtml" x="900" y="450" zoom="true"/>
+        <Node id="instructor/aprendices.xhtml" x="425" y="1555" zoom="true"/>
+        <Node id="instructor/eventos.xhtml" x="426" y="1437" zoom="true"/>
+        <Node id="Views/jornada/List.xhtml" x="-449" y="1544" zoom="true"/>
+        <Node id="Views/tipodepersona/View.xhtml" x="900" y="750" zoom="true"/>
+        <Node id="Views/persona/Edit.xhtml" x="1400" y="900" zoom="true"/>
+        <Node id="instructor/asistencias.xhtml" x="421" y="1491" zoom="true"/>
+        <Node id="Views/jornada/Edit.xhtml" x="692" y="1277" zoom="true"/>
+        <Node id="aprendiz/pruebaasistencia.xhtml" x="-96" y="1268" zoom="true"/>
+        <Node id="template.xhtml" x="400" y="600" zoom="true"/>
+        <Node id="Views/modalidad/View.xhtml" x="650" y="300" zoom="true"/>
+        <Node id="Views/modalidad/List.xhtml" x="-418" y="1168" zoom="true"/>
+        <Node id="Views/persona/View.xhtml" x="497" y="1118" zoom="true"/>
+        <Node id="Views/tipodepersona/Edit.xhtml" x="1900" y="150" zoom="true"/>
+        <Node id="admin/fichas.xhtml" x="158" y="1417" zoom="true"/>
+        <Node id="Views/niveldeformacion/Create.xhtml" x="2650" y="300" zoom="true"/>
+        <Node id="Views/persona/List.xhtml" x="1400" y="750" zoom="true"/>
+        <Node id="templateIns.xhtml" x="454" y="1600" zoom="true"/>
+        <Node id="Views/jornada/Create.xhtml" x="1154" y="738" zoom="true"/>
+        <Node id="Views/tipodepersona/Create.xhtml" x="1400" y="450" zoom="true"/>
+        <Node id="Views/usuario/Create.xhtml" x="1650" y="750" zoom="true"/>
+        <Node id="Views/usuario/List.xhtml" x="-414" y="1382" zoom="true"/>
+        <Node id="Views/programa/List.xhtml" x="-861" y="1083" zoom="true"/>
+        <Node id="Views/programa/View.xhtml" x="400" y="450" zoom="true"/>
+        <Node id="Views/usuario/View.xhtml" x="131" y="1118" zoom="true"/>
+        <Node id="instructor/fichas.xhtml" x="416" y="1405" zoom="true"/>
+        <Node id="Views/modalidad/Create.xhtml" x="400" y="900" zoom="true"/>
+        <Node id="Views/tipodedocumento/Edit.xhtml" x="1400" y="300" zoom="true"/>
+        <Node id="Views/tipodeusuario/Edit.xhtml" x="1900" y="750" zoom="true"/>
+        <Node id="aprendiz/asistencia.xhtml" x="-159" y="1684" zoom="true"/>
+    </Scope>
+    <Scope Scope="All Faces Configurations"/>
+</Scene>

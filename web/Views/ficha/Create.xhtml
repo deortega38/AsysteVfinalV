@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="FichaCreateDlg" widgetVar="FichaCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateFichaTitle}">
+            <h:form id="FichaCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{fichaController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateFichaLabel_numero}" for="numero" />
+                        <p:inputText id="numero" value="#{fichaController.selected.numero}" title="#{bundle.CreateFichaTitle_numero}" required="true" requiredMessage="#{bundle.CreateFichaRequiredMessage_numero}"/>
+                        <p:outputLabel value="#{bundle.CreateFichaLabel_ambiente}" for="ambiente" />
+                        <p:inputText id="ambiente" value="#{fichaController.selected.ambiente}" title="#{bundle.CreateFichaTitle_ambiente}" required="true" requiredMessage="#{bundle.CreateFichaRequiredMessage_ambiente}"/>
+                        <p:outputLabel value="#{bundle.CreateFichaLabel_fechadeinicio}" for="fechadeinicio" />
+                        <p:calendar id="fechadeinicio" pattern="MM/dd/yyyy" value="#{fichaController.selected.fechadeinicio}" title="#{bundle.EditFichaTitle_fechadeinicio}" required="true" requiredMessage="#{bundle.EditFichaRequiredMessage_fechadeinicio}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateFichaLabel_fechafin}" for="fechafin" />
+                        <p:calendar id="fechafin" pattern="MM/dd/yyyy" value="#{fichaController.selected.fechafin}" title="#{bundle.EditFichaTitle_fechafin}" required="true" requiredMessage="#{bundle.EditFichaRequiredMessage_fechafin}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateFichaLabel_horadeinicio}" for="horadeinicio" />
+                        <p:inputText id="horadeinicio" value="#{fichaController.selected.horadeinicio}" title="#{bundle.CreateFichaTitle_horadeinicio}" required="true" requiredMessage="#{bundle.CreateFichaRequiredMessage_horadeinicio}"/>
+                        <p:outputLabel value="#{bundle.CreateFichaLabel_horafin}" for="horafin" />
+                        <p:inputText id="horafin" value="#{fichaController.selected.horafin}" title="#{bundle.CreateFichaTitle_horafin}" required="true" requiredMessage="#{bundle.CreateFichaRequiredMessage_horafin}"/>
+                        <p:outputLabel value="#{bundle.CreateFichaLabel_jornadaidJornada}" for="jornadaidJornada" />
+                        <p:selectOneMenu id="jornadaidJornada" value="#{fichaController.selected.jornadaidJornada}" required="true" requiredMessage="#{bundle.EditFichaRequiredMessage_jornadaidJornada}">
+                            <f:selectItems value="#{jornadaController.itemsAvailableSelectOne}"
+                                           var="jornadaidJornadaItem"
+                                           itemValue="#{jornadaidJornadaItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateFichaLabel_modalidadidModalidad}" for="modalidadidModalidad" />
+                        <p:selectOneMenu id="modalidadidModalidad" value="#{fichaController.selected.modalidadidModalidad}" required="true" requiredMessage="#{bundle.EditFichaRequiredMessage_modalidadidModalidad}">
+                            <f:selectItems value="#{modalidadController.itemsAvailableSelectOne}"
+                                           var="modalidadidModalidadItem"
+                                           itemValue="#{modalidadidModalidadItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateFichaLabel_programaidPrograma}" for="programaidPrograma" />
+                        <p:selectOneMenu id="programaidPrograma" value="#{fichaController.selected.programaidPrograma}" required="true" requiredMessage="#{bundle.EditFichaRequiredMessage_programaidPrograma}">
+                            <f:selectItems value="#{programaController.itemsAvailableSelectOne}"
+                                           var="programaidProgramaItem"
+                                           itemValue="#{programaidProgramaItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{fichaController.create}" value="#{bundle.Save}" update="display,:FichaListForm:datalist,:growl" oncomplete="handleSubmit(args,'FichaCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="FichaCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
