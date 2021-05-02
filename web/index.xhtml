@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet</title>
+        <h:outputStylesheet library="css" name="jsfcrud.css"/>
+        <h:outputScript library="js" name="jsfcrud.js"/>
+    </h:head>
+    <h:body>
+        <ui:composition template="indextemplate.xhtml">
+
+            <ui:define name="login">
+                <div class="box" align="center">
+                    <div class="loginimg" align="center"><img class="img_logologin" alt="" src="resources/assets/login.png" height="50px" width="50px"></img></div>
+                    <h1 id="title_login" align="center">Inicio de sesión</h1>
+                    <br/>
+                    <br/>
+                    <h:form>
+                        <h:panelGrid columns="1">
+                            <p:outputLabel class="label1" for="usuario" value="Número de identidad" />
+                            <h:inputText class="usuario" id="usuario" required="true" value="#{login.name}"/>
+                            <p:separator style="padding: 1px; margin: 0px; background-image: -webkit-linear-gradient(top, #d4d3d3, #d4d3d3);" />
+                            <p:outputLabel class="label2" for="contraseña" value="Contraseña"/>
+                            <h:inputSecret class="password1" id="contraseña" required="true" value="#{login.pass}"/>
+                            <p:separator style="padding: 1px; margin: 0px;  background-image: -webkit-linear-gradient(top, #d4d3d3, #d4d3d3);"/>
+                            <p:message for="usuario"/>
+                            <br/>
+                            <p:commandButton  class="iniciarsesion" value="Iniciar sesión" style="padding: 10px; background: rgb(89, 181, 72); border-radius: 100px; color: white; border: 0px solid; outline: none;" update=":growl" action="#{login.autnticar()}" />
+                        </h:panelGrid>
+                    </h:form>
+                </div>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+
